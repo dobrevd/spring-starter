@@ -24,6 +24,14 @@
                 <entry key="driver" value-ref="driver"/>
             </map>
         </constructor-arg>
+        <property name="properties">
+            <map>
+                <entry key="url" value="postgresurl"/>
+                <entry key="password" value="123"/>
+                <entry key="driver" value-ref="driver"/>
+            </map>
+        </property>
+
     </bean>
 
     <bean id="userRepository" class="com.dmdev.database.repository.UserRepository">
