@@ -13,6 +13,9 @@
     <bean id="driver" class="java.lang.String">
         <constructor-arg type="java.lang.String" value="${db.driver}"/>
     </bean>
+<!--id бина не задаем тк не будем их получать их контекста, нужны только для инициализации метаинфо-->
+    <bean class="com.dmdev.bfpp.LogBeanFactoryPostProcessor"/>
+    <bean class="com.dmdev.bfpp.VerifyPropertyBeanFactoryPostProcessor"/>
 
     <bean id="pool1" name="p1, p2" class="com.dmdev.database.pool.ConnectionPool" scope="singleton"
         init-method="init"
