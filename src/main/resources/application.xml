@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:contex="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <contex:property-placeholder location="classpath:application.properties"/>
+
+<!--    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">-->
+<!--        <property name="locations" value="application.properties"/>-->
+<!--    </bean>-->
+
     <bean id="driver" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="PostgresDriver"/>
+        <constructor-arg type="java.lang.String" value="${db.driver}"/>
     </bean>
 
     <bean id="pool1" name="p1, p2" class="com.dmdev.database.pool.ConnectionPool" scope="singleton"
         init-method="init"
         destroy-method="destroy">
-        <constructor-arg index="0" type="java.lang.String" value="postgres" />
-        <constructor-arg name="poolSize" type="java.lang.Integer" value="10"/>
+        <constructor-arg index="0" type="java.lang.String" value="${db.username}" />
+        <constructor-arg name="poolSize" type="java.lang.Integer" value="${db.pool.size}"/>
         <constructor-arg index="2" type="java.util.List">
             <list>
                 <value>--arg1=value1</value>
@@ -24,6 +31,8 @@
                 <entry key="url" value="postgresurl"/>
                 <entry key="password" value="123"/>
                 <entry key="driver" value-ref="driver"/>
+                <entry key="test" value="#{driver.length() >= 10}"/>
+                <entry key="test1" value="#{T(Math).random() * 10}"/>
             </map>
         </constructor-arg>
         <property name="properties">
