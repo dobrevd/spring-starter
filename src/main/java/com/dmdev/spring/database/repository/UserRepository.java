@@ -1,6 +1,6 @@
-package com.dmdev.database.repository;
+package com.dmdev.spring.database.repository;
 
-import com.dmdev.database.pool.ConnectionPool;
+import com.dmdev.spring.database.pool.ConnectionPool;
 
 public class UserRepository {
 

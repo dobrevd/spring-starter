@@ -1,7 +1,5 @@
-import com.dmdev.database.pool.ConnectionPool;
-import com.dmdev.database.repository.CompanyRepository;
-import com.dmdev.database.repository.UserRepository;
-import com.dmdev.service.UserService;
+import com.dmdev.spring.database.pool.ConnectionPool;
+import com.dmdev.spring.database.repository.CompanyRepository;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class ApplicationRunner {

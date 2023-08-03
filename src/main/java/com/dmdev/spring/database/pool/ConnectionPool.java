@@ -1,4 +1,4 @@
-package com.dmdev.database.pool;
+package com.dmdev.spring.database.pool;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;

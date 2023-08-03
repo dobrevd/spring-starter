@@ -1,7 +1,7 @@
-package com.dmdev.service;
+package com.dmdev.spring.service;
 
-import com.dmdev.database.repository.CompanyRepository;
-import com.dmdev.database.repository.UserRepository;
+import com.dmdev.spring.database.repository.CompanyRepository;
+import com.dmdev.spring.database.repository.UserRepository;
 
 public class UserService {
 
