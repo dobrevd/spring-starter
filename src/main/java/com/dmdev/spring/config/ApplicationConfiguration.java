@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.stereotype.Component;
 
 @Import(WebConfiguration.class)//импорт класса из другого пакета
-@Configuration
+@Configuration(proxyBeanMethods = true)
 @PropertySource("classpath:application.properties")
 @ComponentScan(basePackages = "com.dmdev.spring",
     useDefaultFilters = false,
@@ -27,8 +27,16 @@ public class ApplicationConfiguration {
                                 @Value("${db.pool.size}") Integer poolSize){
         return new ConnectionPool(userName, poolSize);
     }
+
+    @Bean
+    public ConnectionPool pool3(){
+        return new ConnectionPool("test-pool",25);
+    }
     @Bean
     public UserRepository userRepository(ConnectionPool pool2){
         return new UserRepository(pool2);
+    }    @Bean
+    public UserRepository userRepository3(){
+        return new UserRepository(pool3());
     }
 }
