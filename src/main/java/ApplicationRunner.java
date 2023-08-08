@@ -9,7 +9,12 @@ public class ApplicationRunner {
 
     public static void main(String[] args) {
 //        try (var context = new ClassPathXmlApplicationContext("application.xml")) {
-        try (var context = new AnnotationConfigApplicationContext(ApplicationConfiguration.class)) {
+        try (var context = new AnnotationConfigApplicationContext()) {
+            context.register(ApplicationConfiguration.class);
+            context.getEnvironment().setActiveProfiles("web", "prod");
+            context.refresh();
+            String [] activeProfiles = context.getEnvironment().getActiveProfiles();
+
             var pool1 = context.getBean("pool1", ConnectionPool.class);
             System.out.println(pool1);
 
