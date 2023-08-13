@@ -17,4 +17,9 @@ db:
     - timeout: 2
     - size: 3
     - timeout: 3
-spring.profiles.active: qa
+#spring.profiles.active: qa
+
+logging:
+  level:
+    root: WARN
+    com/dmdev/spring/database/pool/ConnectionPool: INFO
