@@ -15,16 +15,13 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-
 public class CompanyService {
 
     private final CrudRepository<Integer, Company> companyRepository;
     private final UserService userService;
     private final ApplicationEventPublisher eventPublisher;
 
-
-    @SneakyThrows
-    public Optional<CompanyReadDto> findById(Integer id){
+    public Optional<CompanyReadDto> findById(Integer id) {
         return companyRepository.findById(id)
                 .map(entity -> {
                     eventPublisher.publishEvent(new EntityEvent(entity, AccessType.READ));

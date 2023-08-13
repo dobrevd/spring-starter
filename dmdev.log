@@ -1,0 +1,63 @@
+2023-08-13 11:15:18.077  WARN 10052 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'userRepository' defined in class path resource [com/dmdev/spring/config/ApplicationConfiguration.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=applicationConfiguration; factoryMethodName=userRepository; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/dmdev/spring/config/ApplicationConfiguration.class]] for bean 'userRepository': There is already [Generic bean: class [com.dmdev.spring.database.repository.UserRepository]; scope=prototype; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [C:\Users\Dima\IdeaProjects\spring-starter\build\classes\java\main\com\dmdev\spring\database\repository\UserRepository.class]] bound.
+2023-08-13 11:15:18.124 ERROR 10052 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'userRepository', defined in class path resource [com/dmdev/spring/config/ApplicationConfiguration.class], could not be registered. A bean with that name has already been defined in file [C:\Users\Dima\IdeaProjects\spring-starter\build\classes\java\main\com\dmdev\spring\database\repository\UserRepository.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2023-08-13 11:17:20.540  WARN 1328 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'companyRepository' defined in file [C:\Users\Dima\IdeaProjects\spring-starter\build\classes\java\main\com\dmdev\spring\database\repository\CompanyRepository.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'java.lang.Integer' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2023-08-13 11:17:20.574 ERROR 1328 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of constructor in com.dmdev.spring.database.repository.CompanyRepository required a bean of type 'java.lang.Integer' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'java.lang.Integer' in your configuration.
+
+2023-08-13 11:19:07.064  WARN 4180 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'companyService' defined in file [C:\Users\Dima\IdeaProjects\spring-starter\build\classes\java\main\com\dmdev\spring\service\CompanyService.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'companyRepository' defined in file [C:\Users\Dima\IdeaProjects\spring-starter\build\classes\java\main\com\dmdev\spring\database\repository\CompanyRepository.class]: Unsatisfied dependency expressed through constructor parameter 2; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'java.lang.Integer' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2023-08-13 11:19:07.096 ERROR 4180 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 2 of constructor in com.dmdev.spring.database.repository.CompanyRepository required a bean of type 'java.lang.Integer' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'java.lang.Integer' in your configuration.
+
+2023-08-13 11:20:17.200  WARN 6924 --- [main] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'companyService' defined in file [C:\Users\Dima\IdeaProjects\spring-starter\build\classes\java\main\com\dmdev\spring\service\CompanyService.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'companyRepository' defined in file [C:\Users\Dima\IdeaProjects\spring-starter\build\classes\java\main\com\dmdev\spring\database\repository\CompanyRepository.class]: Unsatisfied dependency expressed through constructor parameter 2; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'java.lang.Integer' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2023-08-13 11:20:17.232 ERROR 6924 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 2 of constructor in com.dmdev.spring.database.repository.CompanyRepository required a bean of type 'java.lang.Integer' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'java.lang.Integer' in your configuration.
+

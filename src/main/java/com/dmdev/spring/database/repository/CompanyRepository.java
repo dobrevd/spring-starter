@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -16,38 +18,30 @@ import java.util.Optional;
 
 @Slf4j
 @Repository
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
 @Transaction
 @Auditing
 @RequiredArgsConstructor
-public class CompanyRepository implements CrudRepository<Integer, Company>{
+public class CompanyRepository implements CrudRepository<Integer, Company> {
 
     private final ConnectionPool pool1;
-    @Value("${db.pool.size")
-    private final Integer poolSize;
     private final List<ConnectionPool> pools;
-
-//    public CompanyRepository(ConnectionPool pool1,
-//                             @Value("${db.pool.size}") Integer poolSize,
-//                             List<ConnectionPool> pools) {
-//        this.pool1 = pool1;
-//        this.poolSize = poolSize;
-//        this.pools = pools;
-//    }
+    @Value("${db.pool.size}")
+    private final Integer poolSize;
 
     @PostConstruct
-    private void init(){
-        log.info("init company repository");
+    private void init() {
+        log.warn("init company repository");
     }
 
     @Override
     public Optional<Company> findById(Integer id) {
-        System.out.println("findById method");
+        System.out.println("findById method...");
         return Optional.of(new Company(id));
     }
 
     @Override
     public void delete(Company entity) {
-        System.out.println("delete method");
+        System.out.println("delete method...");
     }
-
 }
